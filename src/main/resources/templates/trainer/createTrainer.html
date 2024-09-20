@@ -1,0 +1,82 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head th:insert ="fragments/links"/>
+</head>
+ <body>
+	
+	<div  class="header" th:replace="fragments/header :: header">...</div>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
+	
+		
+	<div class = "body container">
+		
+		  <div class="pageContent">
+				<h4>Add Trainer</h4>
+		  </div>
+		  
+		  
+		  <div align="center">
+			
+			<form action="#" th:action="@{/saveTrainer.htm}" th:object="${trainer}" method="post" >
+
+				
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="firstName" > First Name : </label>
+				<input class="form-control" id="firstName" required style="width:50%" type="text" th:field="*{firstName}"  />
+			</div>
+			
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="lastName" > Last Name : </label>
+				<input class="form-control" id="lastName" required style="width:50%" type="text" th:field="*{lastName}"  />
+			</div>
+				
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="contactNo" >Contact No : </label>
+				<input class="form-control" id="contactNo" required style="width:50%" type="number" th:field="*{contactNo}"  />
+			</div>
+			
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="emailId" > Email Id : </label>
+				<input class="form-control" id="emailId" required style="width:50%" type="text" th:field="*{emailId}"  />
+			</div>
+				
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="address" > Address : </label>
+				<input class="form-control" id="address" required style="width:50%" type="text" th:field="*{address}"  />
+			</div>
+			
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="aadharNo" > Aadhar No </label>
+				<input class="form-control" id="aadharNo" required style="width:50%" type="number" th:field="*{aadharNo}"  />
+			</div>
+				
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="idproofType" > Id Proof Type : </label>
+				<input class="form-control" id="idProofType" required style="width:50%" type="text" th:field="*{idProofType}"  />
+			</div>
+			
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="idproofDocument" > Id Proof Document : </label>
+				<input class="form-control" id="idProofDocument" required style="width:50%" type="text" th:field="*{idProofDocument}"  />
+			</div>
+				
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="qualification" > Qualification : </label>
+				<input class="form-control" id="qualification" required style="width:50%" type="text" th:field="*{qualification}"  />
+			</div>
+			<div class="mb-3 text-left " style="text-align: left;">
+				<label class="form-label "  for="trainingExperience" > Training Experience : </label>
+				<input class="form-control" id="trainingExperience" required style="width:50%" type="number" th:field="*{trainingExperience}"  />
+			</div>			
+			
+			
+			<div class="mb-3" style="text-align: left;">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+			  </form>
+	</div>
+	
+	
+</body>
+</html>

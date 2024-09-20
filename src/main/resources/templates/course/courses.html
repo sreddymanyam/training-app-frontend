@@ -1,0 +1,53 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head th:insert ="fragments/links"/>
+</head>
+ <body>
+	
+	<div  class="header" th:replace="fragments/header :: header">...</div>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
+	
+		
+	<div class = "body container">
+		
+		  <div class="pageHeader">
+				<h5>All Courses</h5>
+		  </div>
+		  
+		  <div class="pageContent">
+			<div style="text-align: right;" >
+				     <a th:href="@{'/createCourse.htm'}" class="btn btn-primary btn-sm" >Add New Course</a>
+				  
+			</div>
+			<table class="table table-striped ">
+				<tr>
+				<th>Course Id</th>
+				<th>Course Name</th>
+				<th>Description</th>
+				<th>Topics</th>
+				<th>Status</th>
+				<th colspan="3"></th>
+				
+				</tr>
+				
+				<tr th:each="course : ${courses}">
+					<td th:text="${course.id}"></td>
+					<td th:text="${course.name}"></td>
+					<td th:text="${course.description}"></td>
+					<td th:text="${course.topics}"></td>
+					<td th:text="${course.status}"></td>
+					<td style="text-align: right;" ><a th:href="@{'/deleteCourse.htm/'}+${course.id}" class="btn btn-danger btn-sm" >DELETE</a></td>
+					<td style="text-align: center;"><a th:href="@{'/updateCourse.htm/'}+${course.id}" class="btn btn-warning btn-sm"   >UPDATE</a></td>
+					
+				</tr>
+			</table>
+		  </div>
+		
+	</div>
+	
+	
+
+
+</body>
+</html>

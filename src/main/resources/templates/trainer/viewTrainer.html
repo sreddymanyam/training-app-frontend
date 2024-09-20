@@ -1,0 +1,123 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head th:insert ="fragments/links"/>
+</head>
+ <body>
+	
+	<div  class="header" th:replace="fragments/header :: header">...</div>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
+	
+		
+	<div class = "body container">
+		
+		  <div class="pageContent">
+				<h4> Trainer Details </h4>
+		  </div>
+		  
+		  <div  id="trainerDetails" align="center">
+		
+			<div class="row">
+				<div  class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="firstName" > First Name : </label>
+						<input class="form-control" id="firstName" style="width:50%" type="text" th:field="${trainer.firstName}" readonly />
+				
+				</div>
+				
+				<div  class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="lastName" > Last Name : </label>
+						<input class="form-control" id="lastName" style="width:50%" type="text" th:field="${trainer.lastName}" readonly />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="contactNo" >Contact No : </label>
+					<input class="form-control" id="contactNo" readonly style="width:50%" type="number" th:field="${trainer.contactNo}"  />
+				</div>
+						
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="emailId" > Email Id : </label>
+					<input class="form-control" id="emailId" readonly style="width:50%" type="text" th:field="${trainer.emailId}"  />
+				</div>
+			</div>
+			<div class="row">			
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="address" > Address : </label>
+					<input class="form-control" id="address" readonly style="width:50%" type="text" th:field="${trainer.address}"  />
+				</div>
+						
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="aadharNo" > Aadhar No </label>
+					<input class="form-control" id="aadharNo" readonly style="width:50%" type="number" th:field="${trainer.aadharNo}"  />
+				</div>
+			</div>
+			<div class="row">	
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="idproofType" > Id Proof Type : </label>
+					<input class="form-control" id="idProofType" readonly style="width:50%" type="text" th:field="${trainer.idProofType}"  />
+				</div>
+						
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="idproofDocument" > Id Proof Document : </label>
+					<input class="form-control" id="idProofDocument" readonly style="width:50%" type="text" th:field="${trainer.idProofDocument}"  />
+				</div>
+			</div>
+			<div class="row">
+										
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="qualification" > Qualification : </label>
+					<input class="form-control" id="qualification" readonly style="width:50%" type="text" th:field="${trainer.qualification}"  />
+				</div>
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="trainingExperience" > Training Experience : </label>
+					<input class="form-control" id="trainingExperience" readonly style="width:50%" type="number" th:field="${trainer.trainingExperience}"  />
+				</div>
+			</div>
+		</div>
+		<br />	
+			
+		
+		<div>
+			<div style="text-align: center;">
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCourse">
+			  Add New Course
+			</button>
+			</div>
+			<!-- Modal -->
+			<div class="modal fade" id="newCourse" tabindex="-1" aria-labelledby="addNewCourse" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+					<form action="#" th:action="@{/addCourses.htm}" th:object="${trainer}" method="post" >
+							
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="addNewCourse">Available Courses</h5>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+					
+
+						<div th:each="course,stIndex : ${courses}">
+						    <input type="checkbox"  
+							 th:value="${course}"
+							 th:name="|selectedCourseList[${stIndex.index}]|">
+								
+								<label style="padding-left: 10px;" th:text="${course}"></label>
+						</div>
+
+					
+				  </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			        <button type="submit" class="btn btn-primary" value="submit">Save Courses</button>
+			      </div>
+				  </form>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</form>				
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>selection-expression</title>
+	</head>
+	<body>
+		<h1>Welcome to Selection Expression demo</h1>
+		<h2>User Details : </h2>
+		<div th:object="${user}">
+			<p> Name : <strong th:text="*{name}"></strong> </p>
+			<p> Email : <strong th:text="*{email}"></strong> </p>
+			<p> Role : <strong th:text="*{role}"></strong> </p>
+			<p> Gender : <strong th:text="*{gender}"></strong> </p>
+
+
+		</div>
+	</body>
+</html>

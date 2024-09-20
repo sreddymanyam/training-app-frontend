@@ -1,0 +1,87 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head th:insert ="fragments/links"/>
+</head>
+ <body>
+	
+	<div  class="header" th:replace="fragments/header :: header">...</div>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
+	
+		
+	<div class = "body container">
+		
+		  <div class="pageContent">
+				<h4> Update User </h4>
+		  </div>
+		  
+		  <div align="center">
+		  		
+		  		<form action="#" th:action="@{/saveUserChanges.htm}" th:object="${user}" method="post" >
+		
+				<div class="mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="id" >User Id: </label>
+					<input class="form-control" id="id"  style="width:50%" type="number" th:field="*{userId}" readonly />
+				</div>	
+				
+					
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="firstName" > First Name : </label>
+		  			<input class="form-control" id="firstName" required style="width:50%" type="text" th:field="*{firstName}"  />
+		  		</div>
+		  		
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="lastName" > Last Name : </label>
+		  			<input class="form-control" id="lastName" required style="width:50%" type="text" th:field="*{lastName}"  />
+		  		</div>
+		  			
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="contactNumber" >Contact Number : </label>
+		  			<input class="form-control" id="contactNumber" required style="width:50%" type="number" th:field="*{contactNumber}"  />
+		  		</div>
+		  		
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="emailId" > Email Id : </label>
+		  			<input class="form-control" id="emailId" required style="width:50%" type="text" th:field="*{emailId}"  />
+		  		</div>
+		  			
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="address" > Address : </label>
+		  			<input class="form-control" id="address" required style="width:50%" type="text" th:field="*{address}"  />
+		  		</div>
+		  		
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="idProof" > Id Proof </label>
+		  			<input class="form-control" id="idProof" required style="width:50%" type="text" th:field="*{idProof}"  />
+		  		</div>
+		  			
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="aadharNumber" > Adhar Number : </label>
+		  			<input class="form-control" id="aadharNumber" required style="width:50%" type="number" th:field="*{aadharNumber}"  />
+		  		</div>
+		  		
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="profession" > Profession : </label>
+		  			<input class="form-control" id="profession" required style="width:50%" type="text" th:field="*{profession}"  />
+		  		</div>
+		  			
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="collegeOrOffice" > College Or Office : </label>
+		  			<input class="form-control" id="collegeOrOffice" required style="width:50%" type="text" th:field="*{collegeOrOffice}"  />
+		  		</div>
+		  		<div class="mb-3 text-left " style="text-align: left;">
+		  			<label class="form-label "  for="yearOfPassedoutOrExperience" > Year Of Passed Out Or Experience : </label>
+		  			<input class="form-control" id="yearOfPassedoutOrExperience" required style="width:50%" type="text" th:field="*{yearOfPassedoutOrExperience}"  />
+		  		</div>			
+		  		
+		  		
+		  		<div class="mb-3" style="text-align: left;">
+		  			<input type="submit" value="Save" class="btn btn-primary" />
+		  		</div>
+		  		  </form>
+		  </div>
+		  </div>
+	
+	
+</body>
+</html>

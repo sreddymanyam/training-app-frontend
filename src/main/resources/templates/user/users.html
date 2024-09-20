@@ -1,0 +1,72 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head th:insert ="fragments/links"/>
+</head>
+ <body>
+	
+	<div  class="header" th:replace="fragments/header :: header">...</div>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
+	
+		
+	<div class = "body container">
+		
+		  <div class="pageHeader">
+				<h5>All Users</h5>
+		  </div>
+		  
+		  <div class="pageContent">
+			<div style="text-align: right;" >
+				     <a th:href="@{'/createUser.htm'}" class="btn btn-primary btn-sm" >Add New User</a>
+				 
+					 
+					  
+			</div>
+			<table class="table table-striped ">
+				<tr>
+				<th>User Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Contact Number</th>
+				<th>Email Id</th>
+				<th>Address</th>
+				<th>Id Proof</th>
+				<th>Aadhar Number</th>
+				<th>Profession</th>
+				<th>College Or Office</th>
+				<th>Year Of Passedout Or Experienced</th>
+
+				
+				<th colspan="3"></th>
+				
+				</tr>
+				
+				<tr th:each="user : ${users}">
+					<td th:text="${user.userId}"></td>
+					<td th:text="${user.firstName}"></td>
+					<td th:text="${user.lastName}"></td>
+					<td th:text="${user.contactNumber}"></td>
+					<td th:text="${user.emailId}"></td>
+					<td th:text="${user.address}"></td>
+					<td th:text="${user.idProof}"></td>
+					<td th:text="${user.aadharNumber}"></td>
+					<td th:text="${user.profession}"></td>
+					<td th:text="${user.collegeOrOffice}"></td>
+					<td th:text="${user.yearOfPassedoutOrExperience}"></td>
+
+					
+																
+					<td style="text-align: right;" ><a th:href="@{'/deleteUser.htm/'}+${user.userId}" class="btn btn-danger btn-sm"  >DELETE</a></td>
+					<td style="text-align: center;"><a th:href="@{'/updateUser.htm/'}+${user.userId}" class="btn btn-warning btn-sm"   >UPDATE</a></td>
+					
+				</tr>
+			</table>
+		  </div>
+		
+	</div>
+	
+	
+
+
+</body>
+</html>

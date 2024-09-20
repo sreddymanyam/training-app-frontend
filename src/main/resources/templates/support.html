@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head th:insert ="fragments/links"/>
+</head>
+ <body>
+	
+	<div  class="header" th:replace="fragments/header :: header">...</div>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
+	
+	<div class = "body container">
+		  <h1> Welcome to Support Page </h1><br><br>
+		  
+		  
+		  <h5>Email Support :  <a href="mailto:pokalasivareddy1@gmail.com"> Click Here </a></h5><br>
+		  
+		  <h5> Contact Support : <a href="9347823130">9347823130</a></h5><br>
+		  
+		  <h5>Watsup Support : 
+		  
+		  	<a href="whatsapp://send?text=Hello World!&phone=+919686448265">Ping me on WhatsApp</a>
+
+		  </h5>	
+		  
+		
+	</div>
+
+	<div th:insert ="fragments/footer" />
+</body>
+</html>
+
