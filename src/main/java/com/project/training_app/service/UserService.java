@@ -11,15 +11,21 @@ import com.project.training_app.to.UserTo;
 
 @Service
 public class UserService {
+	private static final String TRAINING_APP_BASE_URL = "http://localhost:8081/training-app";
+	private static final String ALL_USERS = TRAINING_APP_BASE_URL + "/user-service/all";
+	private static final String CREATE_TRAINER = TRAINING_APP_BASE_URL + "/user-service/create";
+	private static final String DELETE_USER = TRAINING_APP_BASE_URL + "/user-service/delete/{id}";
+	private static final String UPDATE_USER = TRAINING_APP_BASE_URL + "/user-service/update";
+
+
+
 		
 	@Autowired
 	private RestTemplate restTemplate;
 	 
 	public List<UserTo> getAllUsers(){
-		
-		String training_app_url ="http://localhost:8081/training-app/user-service/all";
-			
-		UserTo[] userarray = this.restTemplate.getForObject(training_app_url, UserTo[].class);
+					
+		UserTo[] userarray = this.restTemplate.getForObject(ALL_USERS, UserTo[].class);
 			
 		List<UserTo> userlist= Arrays.asList(userarray);
 		    
@@ -28,29 +34,23 @@ public class UserService {
 	}
 	
 	public void saveUser(UserTo userTo) {
-		 
-		String training_app_url_create = "http://localhost:8081/training-app/user-service/create";
-		  
+		 		  
 		try {
-		  restTemplate.postForEntity(training_app_url_create, userTo, UserTo.class); 	
+		  restTemplate.postForEntity(CREATE_TRAINER, userTo, UserTo.class); 	
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void removeUser(int id) {
-		
-		String training_app_url_delete = "http://localhost:8081/training-app/user-service/delete/{id}";
-		  		  
-		restTemplate.delete(training_app_url_delete, id);
+				  		  
+		restTemplate.delete(DELETE_USER, id);
 
 		}
 	
 	  public UserTo getUserById(int id) {
 		
-		String training_app_url ="http://localhost:8081/training-app/user-service/all";
-
-		UserTo[] userarray = this.restTemplate.getForObject(training_app_url, UserTo[].class);
+		UserTo[] userarray = this.restTemplate.getForObject(ALL_USERS, UserTo[].class);
 			
 		    List<UserTo> user= Arrays.asList(userarray);
 		    
@@ -65,10 +65,8 @@ public class UserService {
 	   
 	public void updateUser(UserTo userTo) {
 		
-		String training_app_url_update = "http://localhost:8081/training-app/user-service/update";
-
 		 try {
-			  restTemplate.postForEntity(training_app_url_update, userTo, UserTo.class); 	
+			  restTemplate.postForEntity(UPDATE_USER, userTo, UserTo.class); 	
 		  }catch (Exception e) {
 	            e.printStackTrace();
 		  }

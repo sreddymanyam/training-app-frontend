@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project.training_app.service.UserService;
-import com.project.training_app.to.TrainerTo;
 import com.project.training_app.to.UserTo;
 
 
