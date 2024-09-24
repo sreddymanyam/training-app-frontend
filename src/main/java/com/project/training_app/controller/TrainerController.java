@@ -93,20 +93,19 @@ public class TrainerController {
 	}
 	
 	@PostMapping("/addCourses.htm")
-	public String selectedCourses(Model model , @ModelAttribute TrainerTo trainerTo) {
+	public String selectedCourses(Model model , @ModelAttribute TrainerTo trainerTo) throws JsonProcessingException {
 		
 			System.out.println(trainerTo.getSelectedCourseList().size());
 			
 			List<String> selectedCourses = trainerTo.getSelectedCourseList();
 			Iterator<String> courseItr = selectedCourses.iterator();
- 			while(courseItr.hasNext()) {
- 				
+ 			while(courseItr.hasNext()) { 				
  				if(courseItr.next() == null) {
  					courseItr.remove();
  				}
  			}
 			
- 			
+ 			trainerService.updateTrainer(trainerTo);
  			
  			
  			System.out.println(selectedCourses.size());
