@@ -70,7 +70,12 @@ public class TrainerService {
 	public void updateTrainer(TrainerTo trainerTo) throws JsonProcessingException {
 		  
 		  try {
+			 
+			  
 			  restTemplate.postForEntity(UPDATE_TRAINER, trainerTo,TrainerTo.class);
+			  
+			  
+			  
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }  
