@@ -3,80 +3,86 @@
         layout:decorate="~{layout}">
 <head th:insert ="fragments/links"/>
 </head>
- <body>
-	
-	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-	
-		
+<body>
+	<div  class="header" th:replace="fragments/header :: header"></div>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">
+		<label th:text="#{training.web.navigation}"></label>
+	</div>	
 	<div class = "body container">
-		
-		  <div class="pageContent">
-				<h4>Add Trainer</h4>
-		  </div>
-		  
-		  
-		  <div align="center">
-			
+		<div class="pageHeader">
+			<label th:text="#{training.web.trainermanagement.addNewTrainer}"></label>
+		</div>  
+		<div align="center">	
 			<form action="#" th:action="@{/saveTrainer.htm}" th:object="${trainer}" method="post" >
-
-				
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="firstName" > First Name : </label>
-				<input class="form-control" id="firstName" required style="width:50%" type="text" th:field="*{firstName}"  />
-			</div>
-			
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="lastName" > Last Name : </label>
-				<input class="form-control" id="lastName" required style="width:50%" type="text" th:field="*{lastName}"  />
-			</div>
-				
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="contactNo" >Contact No : </label>
-				<input class="form-control" id="contactNo" required style="width:50%" type="number" th:field="*{contactNo}"  />
-			</div>
-			
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="emailId" > Email Id : </label>
-				<input class="form-control" id="emailId" required style="width:50%" type="text" th:field="*{emailId}"  />
-			</div>
-				
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="address" > Address : </label>
-				<input class="form-control" id="address" required style="width:50%" type="text" th:field="*{address}"  />
-			</div>
-			
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="aadharNo" > Aadhar No </label>
-				<input class="form-control" id="aadharNo" required style="width:50%" type="number" th:field="*{aadharNo}"  />
-			</div>
-				
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="idproofType" > Id Proof Type : </label>
-				<input class="form-control" id="idProofType" required style="width:50%" type="text" th:field="*{idProofType}"  />
-			</div>
-			
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="idproofDocument" > Id Proof Document : </label>
-				<input class="form-control" id="idProofDocument" required style="width:50%" type="text" th:field="*{idProofDocument}"  />
-			</div>
-				
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="qualification" > Qualification : </label>
-				<input class="form-control" id="qualification" required style="width:50%" type="text" th:field="*{qualification}"  />
-			</div>
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="trainingExperience" > Training Experience : </label>
-				<input class="form-control" id="trainingExperience" required style="width:50%" type="number" th:field="*{trainingExperience}"  />
-			</div>			
-			
-			
-			<div class="mb-3" style="text-align: left;">
-				<input type="submit" value="Save" class="btn btn-primary" />
-			</div>
-			  </form>
+				<div class="row">
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="firstName"  th:text="#{training.web.trainermanagement.firstName}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="firstName" required  type="text" th:field="*{firstName}"  />
+					</div>
+					
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="lastName" th:text="#{training.web.trainermanagement.lastName}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="lastName" required type="text" th:field="*{lastName}"  />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="contactNo" th:text="#{training.web.trainermanagement.contactNo}"> </label>
+						<label class="colon">:</label>
+						<input class="form-control" id="contactNo" required  type="text" th:field="*{contactNo}"  />
+					</div>
+					
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="emailId" th:text="#{training.web.trainermanagement.emailId}"> </label>
+						<label class="colon">:</label>
+						<input class="form-control" id="emailId" required  type="text" th:field="*{emailId}"  />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="address" th:text="#{training.web.trainermanagement.address}"> </label>
+						<label class="colon">:</label>
+						<input class="form-control" id="address" required  type="text" th:field="*{address}"  />
+					</div>
+					
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="aadharNo" th:text="#{training.web.trainermanagement.aadharNo}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="aadharNo" required  type="text" th:field="*{aadharNo}"  />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="idproofType" th:text="#{training.web.trainermanagement.idProofType}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="idProofType" required  type="text" th:field="*{idProofType}"  />
+					</div>
+					
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label" for="customFile" th:text="#{training.web.trainermanagement.idProofDocument}" ></label>
+						<label class="colon">:</label>
+						<input type="file"  class="form-control" id="customFile" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="qualification" th:text="#{training.web.trainermanagement.qualification}"> </label>
+						<label class="colon">:</label>
+						<input class="form-control" id="qualification" required  type="text" th:field="*{qualification}"  />
+					</div>
+					<div class="col mb-3 text-left " style="text-align: left;">
+						<label class="form-label "  for="trainingExperience" th:text="#{training.web.trainermanagement.trainingExperience}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="trainingExperience" required type="number" th:field="*{trainingExperience}"  />
+					</div>			
+				</div>
+				<div class="mb-3" style="text-align: left;">
+					<input type="submit" value="Save" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
 	</div>
-	
-	
 </body>
 </html>
