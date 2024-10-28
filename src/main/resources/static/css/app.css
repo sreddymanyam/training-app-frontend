@@ -7,10 +7,6 @@ body {
 	height: 80px;
 	margin-bottom: 20px;
 }
-.logo-header  {
-	padding:10px;
-	
-}
 
 .navigation {
 	padding:10px;
@@ -26,14 +22,32 @@ body {
 }
 
 .pageHeader {
-	
-	height: 60px;
+	height: 100px;
 	padding:10px;
-	border-bottom: 1px solid  rgb(215, 215, 215);;
+	font-size: 24px;
+	border-bottom: 1px solid  rgb(215, 215, 215);
+	margin-bottom: 20px;
+}
+
+.pageTitle {
+	height: 80px;
+	padding:10px;
+	font-size: 24px;
+	
+}
+.form-check-label {
+	padding-right: 20px;
+}
+.radio-label {
+	margin-right: 20px;
 }
 
 .pageContent {
 	
 	padding: 10px;
+}
+
+.form-label {
+	font-size: 14px;
 }
 

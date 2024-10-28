@@ -21,45 +21,31 @@ public class TrainerService {
 	private static final String UPDATE_TRAINER = TRAINING_APP_BASE_URL + "/trainer-service/update";
 	private static final String ALL_COURSES = TRAINING_APP_BASE_URL + "/course-service/all";
 
-
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	public List<TrainerTo> getAllTrainers(){
-					
+	public List<TrainerTo> getAllTrainers(){		
 		TrainerTo[] trainerarray = this.restTemplate.getForObject(ALL_TRAINERS, TrainerTo[].class);
-			
 		List<TrainerTo> trainer= Arrays.asList(trainerarray);
-
-			
 		return trainer;
-		
 	}
 	
-	 public void saveTrainer(TrainerTo trainerTo) {
-			 
-		 try {
-			  restTemplate.postForEntity(CREATE_TRAINER, trainerTo, TrainerTo.class); 	
-		  }catch (Exception e) {
-	            e.printStackTrace();
-		  }
-	  }
-	   
-	  public void removeTrainer(int id) {
-		  			
-		  restTemplate.delete(DELETE_TRAINER, id);
-
+	public void saveTrainer(TrainerTo trainerTo) {		 
+		try {
+			restTemplate.postForEntity(CREATE_TRAINER, trainerTo, TrainerTo.class); 	
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
+	public void removeTrainer(int id) {
+		restTemplate.delete(DELETE_TRAINER, id);
+	}
 	
-	public TrainerTo updateById(int id) {
-		
+	public TrainerTo updateById(int id) {	
 		TrainerTo[] trainerarray = this.restTemplate.getForObject(ALL_TRAINERS, TrainerTo[].class);
-		
 	    List<TrainerTo> trainer= Arrays.asList(trainerarray);
-	    
 	    for (TrainerTo trainerTo : trainer) {
-	    	
 	    	if(trainerTo.getTrainerId() == id) {
 	    		return trainerTo;
 	    	}
@@ -67,29 +53,18 @@ public class TrainerService {
 	    return null;
 	}
 	
-	public void updateTrainer(TrainerTo trainerTo) throws JsonProcessingException {
-		  
-		  try {
-			 
-			  
-			  restTemplate.postForEntity(UPDATE_TRAINER, trainerTo,TrainerTo.class);
-			  
-			  
-			  
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }  
-	  }
-	
+	public void updateTrainer(TrainerTo trainerTo) throws JsonProcessingException {	  
+		try {	  
+			restTemplate.postForEntity(UPDATE_TRAINER, trainerTo,TrainerTo.class);  
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }  
+	}
 	 
-	public List<String> getCourseNamesList() {
-		
+	public List<String> getCourseNamesList() {	
 		List<String> courseNamesList = new ArrayList<>();
-		
 		CourseTo[] coursearray = this.restTemplate.getForObject(ALL_COURSES, CourseTo[].class);
-		
 	    List<CourseTo> cour= Arrays.asList(coursearray);
-	    
 	    for (CourseTo courseTo : cour) {
 		    String value = courseTo.getName();
 		    courseNamesList.add(value);
@@ -97,16 +72,19 @@ public class TrainerService {
 		return courseNamesList;
 	}
 
-
-	public void registroCourse(TrainerTo trainerTo, List<String> selectedCourses) {
-		
-			// load trainer
-		
-			// add course data
-			// load all courses
-			// put inside trainer
-			// send trainer to update.
-		
+	public void registroCourse(TrainerTo trainerTo, List<String> selectedCourses) {	
+		// load trainer
+		TrainerTo[] trainerarray = this.restTemplate.getForObject(ALL_TRAINERS, TrainerTo[].class);
+	    List<TrainerTo> trainer= Arrays.asList(trainerarray);
+	    for (TrainerTo trainerTo1 : trainer) {
+	    	if(trainerTo1.getTrainerId() == trainerTo.getTrainerId()) {
+	    		//trainerTo1
+	    	}
+		}
+		// add course data
+		// load all courses
+		// put inside trainer
+		// send trainer to update.	
 	}
 	
 }

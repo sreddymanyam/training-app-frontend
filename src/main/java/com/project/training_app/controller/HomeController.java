@@ -8,14 +8,17 @@ public class HomeController {
 
 	@GetMapping("home.htm")
 	public String homeController() {
-		
 		return "home";
 	}
 	
+	 @GetMapping("login.htm")
+	 public String login() {
+		 return "security/login";
+	 }
 	
 	@GetMapping("support.htm")
 	public String supportController() {
-		
 		return "support";
 	}
+	
 }

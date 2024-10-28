@@ -4,15 +4,15 @@
 <head th:insert ="fragments/links"/>
 </head>
  <body>
-	
 	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-	
-	<div class = "body container">
-		  <h1>Welcome to Home page</h1>
-
+	<div class="navigation" th:replace="fragments/navigation :: navigation">
+		<label th:text="#{training.web.navigation}"></label>
 	</div>
-
-	<div th:insert ="fragments/footer" />
+	<div class = "body container">
+		<h1>
+			<label th:text="#{training.web.homepage.title}"></label>
+		</h1><br><br>
+	</div>
+	<div th:insert ="fragments/footer" ></div>
 </body>
 </html>

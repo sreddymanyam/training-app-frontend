@@ -4,57 +4,51 @@
 <head th:insert ="fragments/links"/>
 </head>
  <body>
-	
 	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-	
-		
-	<div class = "body container">
-		
-		  <div class="pageContent">
-				<h4>Update Course  </h4>
-		  </div>
-		  
-		  <div align="center">
-		  
-			<form action="#" th:action="@{/saveCoursechanges.htm}" th:object="${course}" method="post" >
-
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="courseId" >Course Id: </label>
-				<input class="form-control" id="courseId" required style="width:50%" type="number" th:field="*{id}" readonly />
-			</div>	
-				
-				
-			<div class="mb-3 text-left " style="text-align: left;">
-				<label class="form-label "  for="courseName" >Course Name: </label>
-				<input class="form-control" id="courseName" required style="width:50%" type="text" th:field="*{name}"  />
-			</div>
-			<div class="mb-3" style="text-align: left;">
-				<label class="form-label" >Course Description : </label>
-				<input class="form-control" type="text"  th:field="*{description} "
-				  style="width:50%" required />
-			</div>
-			<div class="mb-3" style="text-align: left;">
-				<label  class="form-label">Course Topics : </label>
-				<textarea class="form-control" type="text" th:field="*{topics}" 
-				  style="width:50%" required />
-			 </div>
-			 <div class="mb-3" style="text-align: left;">
-				<label class="form-check-label">Status : </label>
-				
-				
-				<input class="form-check-input" type="radio" name="status" value="true" th:field="*{status}" > Active
-				
-				
-				<input class="form-check-input" type="radio" name="status" value="false" th:field="*{status}" > InActive
-			</div>
-			
-			<div class="mb-3" style="text-align: left;">
-				<input type="submit" value="Save" class="btn btn-primary" />
-			</div>
-			  </form>
+	<div class="navigation" th:replace="fragments/navigation :: navigation">
+		<label th:text="#{training.web.navigation}"></label>
 	</div>
-	
-	
+	<div class = "body container">
+		<div class="pageTitle">
+			<label th:text="#{training.web.coursemanagement.updateCourse}"></label>
+		</div>  
+		<div align="center">  
+			<form action="#" th:action="@{/saveCoursechanges.htm}" th:object="${course}" method="post" >
+				<div class="mb-3 text-left " style="text-align: left;">
+					<label class="form-label " for="courseId" th:text="#{training.web.coursemanagement.courseId}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="courseId" required style="width:50%" type="number" th:field="*{id}" readonly />
+				</div>	
+				<div class="mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="courseName" th:text="#{training.web.coursemanagement.courseName}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="courseName" required style="width:50%" type="text" th:field="*{name}"  />
+				</div>
+				<div class="mb-3" style="text-align: left;">
+					<label class="form-label" th:text="#{training.web.coursemanagement.description}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" type="text"  th:field="*{description} "
+					  style="width:50%" required />
+				</div>
+				<div class="mb-3" style="text-align: left;">
+					<label  class="form-label" th:text="#{training.web.coursemanagement.topics}"></label>
+					<label class="colon">:</label>
+					<textarea class="form-control" type="text" th:field="*{topics}" 
+					  style="width:50%" required />
+				 </div>
+				 <div class="mb-3" style="text-align: left;">
+					<label class="form-check-label" th:text="#{training.web.coursemanagement.status}"></label>
+					<label class="form-check-label">:</label>
+					<input class="form-check-input" type="radio" name="status" value="true" th:field="*{status}" /> 
+					<label class="radio-label" th:text="#{training.web.coursemanagement.active}"></label>
+					<input class="form-check-input" type="radio" name="status" value="false" th:field="*{status}" /> 
+					<label class="radio-label" th:text="#{training.web.coursemanagement.inActive}"></label>
+				</div>
+				<div class="mb-3" style="text-align: left;">
+					<input type="submit" value="Save" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

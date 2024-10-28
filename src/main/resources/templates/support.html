@@ -4,28 +4,38 @@
 <head th:insert ="fragments/links"/>
 </head>
  <body>
-	
 	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-	
-	<div class = "body container">
-		  <h1> Welcome to Support Page </h1><br><br>
-		  
-		  
-		  <h5>Email Support :  <a href="mailto:pokalasivareddy1@gmail.com"> Click Here </a></h5><br>
-		  
-		  <h5> Contact Support : <a href="9347823130">9347823130</a></h5><br>
-		  
-		  <h5>Watsup Support : 
-		  
-		  	<a href="whatsapp://send?text=Hello World!&phone=+919686448265">Ping me on WhatsApp</a>
-
-		  </h5>	
-		  
-		
+	<div class="navigation" th:replace="fragments/navigation :: navigation">
+		<label th:text="#{training.web.navigation}"></label>
 	</div>
-
-	<div th:insert ="fragments/footer" />
+	<div class = "body container">
+		<h1>
+			<label th:text="#{training.web.supportpage.title}"></label>
+		</h1><br><br>
+		<div style="padding-left:  30px;">
+		<h5>
+			<label th:text="#{training.web.supportpage.email}"></label> 
+			<label class="colon">:</label>
+			<a href="mailto:pokalasivareddy1@gmail.com">
+				<label th:text="#{training.web.supportpage.click}"></label>
+			</a>
+		</h5><br> 
+		<h5>
+			<label th:text="#{training.web.supportpage.contact}"></label>
+			<label class="colon">:</label>
+			<a href="9347823130">
+				<label th:text="#{training.web.supportpage.contactNumber}"></label>
+			</a>
+		</h5><br>
+		<h5>
+			<label th:text="#{training.web.supportpage.whatsup}"></label>
+			<label class="colon">:</label>
+			<a href="whatsapp://send?text=Hello World!&phone=+919686448265">
+				<label th:text="#{training.web.supportpage.click}"></label>
+			</a>
+		</h5>
+		</div>	
+	</div>
+	<div th:insert ="fragments/footer" ></div>
 </body>
 </html>
-

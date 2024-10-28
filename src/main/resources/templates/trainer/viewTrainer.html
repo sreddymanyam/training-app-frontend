@@ -4,120 +4,122 @@
 <head th:insert ="fragments/links"/>
 </head>
  <body>
-	
 	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-	
-		
+	<div class="navigation" th:replace="fragments/navigation :: navigation">
+		<label th:text="#{training.web.navigation}"></label>
+	</div>
 	<div class = "body container">
-		
-		  <div class="pageContent">
-				<h4> Trainer Details </h4>
-		  </div>
-		  
-		  <div  id="trainerDetails" align="center">
-		
+		<div class="pageHeader">
+			<label th:text="#{training.web.trainermanagement.viewTrainer}"></label>
+		</div>			  	  
+		<div  id="trainerDetails" align="center">
+			<div class="row">
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="id" th:text="#{training.web.trainermanagement.trainerId}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="id" type="number" th:field="*{trainer.trainerId}" readonly />
+				</div>
+				<div  class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label " for="firstName" th:text="#{training.web.trainermanagement.firstName}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="firstName" type="text" th:field="${trainer.firstName}" readonly />
+				</div>
+			</div>
 			<div class="row">
 				<div  class="col mb-3 text-left " style="text-align: left;">
-						<label class="form-label "  for="firstName" > First Name : </label>
-						<input class="form-control" id="firstName" style="width:50%" type="text" th:field="${trainer.firstName}" readonly />
-				
+					<label class="form-label "  for="lastName" th:text="#{training.web.trainermanagement.lastName}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="lastName" type="text" th:field="${trainer.lastName}" readonly />
 				</div>
-				
-				<div  class="col mb-3 text-left " style="text-align: left;">
-						<label class="form-label "  for="lastName" > Last Name : </label>
-						<input class="form-control" id="lastName" style="width:50%" type="text" th:field="${trainer.lastName}" readonly />
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="contactNo" th:text="#{training.web.trainermanagement.contactNo}"> </label>
+					<label class="colon">:</label>
+					<input class="form-control" id="contactNo" readonly type="number" th:field="${trainer.contactNo}" />
+				</div>
+			</div>
+			<div class="row">		
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="emailId" th:text="#{training.web.trainermanagement.emailId}"> </label>
+					<label class="colon">:</label>
+					<input class="form-control" id="emailId" readonly type="text" th:field="${trainer.emailId}" />
+				</div>		
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="address" th:text="#{training.web.trainermanagement.address}"> </label>
+					<label class="colon">:</label>
+					<input class="form-control" id="address" readonly type="text" th:field="${trainer.address}"  />
+				</div>
+			</div>
+			<div class="row">		
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="aadharNo" th:text="#{training.web.trainermanagement.aadharNo}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="aadharNo" readonly  type="number" th:field="${trainer.aadharNo}"  />
+				</div>
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="idproofType" th:text="#{training.web.trainermanagement.idProofType}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="idProofType" readonly  type="text" th:field="${trainer.idProofType}"  />
+				</div>
+			</div>
+			<div class="row">		
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label" for="customFile" th:text="#{training.web.trainermanagement.idProofDocument}" ></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="idProofDocument" readonly  type="text" th:field="${trainer.idProofDocument}"  />
+				</div>					
+				<div class="col mb-3 text-left " style="text-align: left;">
+					<label class="form-label "  for="qualification" th:text="#{training.web.trainermanagement.qualification}"> </label>
+					<label class="colon">:</label>
+					<input class="form-control" id="qualification" readonly type="text" th:field="${trainer.qualification}"  />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="contactNo" >Contact No : </label>
-					<input class="form-control" id="contactNo" readonly style="width:50%" type="number" th:field="${trainer.contactNo}"  />
-				</div>
-						
-				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="emailId" > Email Id : </label>
-					<input class="form-control" id="emailId" readonly style="width:50%" type="text" th:field="${trainer.emailId}"  />
-				</div>
-			</div>
-			<div class="row">			
-				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="address" > Address : </label>
-					<input class="form-control" id="address" readonly style="width:50%" type="text" th:field="${trainer.address}"  />
-				</div>
-						
-				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="aadharNo" > Aadhar No </label>
-					<input class="form-control" id="aadharNo" readonly style="width:50%" type="number" th:field="${trainer.aadharNo}"  />
-				</div>
-			</div>
-			<div class="row">	
-				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="idproofType" > Id Proof Type : </label>
-					<input class="form-control" id="idProofType" readonly style="width:50%" type="text" th:field="${trainer.idProofType}"  />
-				</div>
-						
-				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="idproofDocument" > Id Proof Document : </label>
-					<input class="form-control" id="idProofDocument" readonly style="width:50%" type="text" th:field="${trainer.idProofDocument}"  />
-				</div>
-			</div>
-			<div class="row">
-										
-				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="qualification" > Qualification : </label>
-					<input class="form-control" id="qualification" readonly style="width:50%" type="text" th:field="${trainer.qualification}"  />
-				</div>
-				<div class="col mb-3 text-left " style="text-align: left;">
-					<label class="form-label "  for="trainingExperience" > Training Experience : </label>
-					<input class="form-control" id="trainingExperience" readonly style="width:50%" type="number" th:field="${trainer.trainingExperience}"  />
+					<label class="form-label "  for="trainingExperience" th:text="#{training.web.trainermanagement.trainingExperience}"></label>
+					<label class="colon">:</label>
+					<input class="form-control" id="trainingExperience" readonly style="width: 50%;"  type="number" th:field="${trainer.trainingExperience}"  />
 				</div>
 			</div>
 		</div>
-		<br />	
-			
-		
+		<br/>
 		<div>
 			<div style="text-align: center;">
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCourse">
-			  Add New Course
+				<label th:text="#{training.web.coursemanagement.addNewCourse}"></label>
 			</button>
 			</div>
+			
 			<!-- Modal -->
 			<div class="modal fade" id="newCourse" tabindex="-1" aria-labelledby="addNewCourse" aria-hidden="true">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-					<form action="#" th:action="@{/addCourses.htm}" th:object="${trainer}" method="post" >
-							
-			      <div class="modal-header">
-			        <h5 class="modal-title" id="addNewCourse">Available Courses</h5>
-			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			      </div>
-			      <div class="modal-body">
-					
-
-						<div th:each="course,stIndex : ${courses}">
-						    <input type="checkbox"  
-							 th:value="${course}"
-							 th:name="|selectedCourseList[${stIndex.index}]|">
-								
-								<label style="padding-left: 10px;" th:text="${course}"></label>
+				<form action="#" th:action="@{/addCourses.htm}" th:object="${trainer}" method="post" >			
+					<div class="modal-dialog">
+			    		<div class="modal-content">
+				    		<div class="modal-header">
+				        		<h5 class="modal-title" id="addNewCourse">
+								<label th:text="#{training.web.coursemanagement.availableCourses}"></label>
+								</h5>
+				        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+			     			<div class="modal-body">
+								<div th:each="course,stIndex : ${courses}">
+						    		<input type="checkbox"  
+							 			th:value="${course}"
+							 			th:name="|selectedCourseList[${stIndex.index}]|"/>
+								</div>	
+							</div>
+							<label style="padding-left: 10px;" th:text="${course}"></label>
 						</div>
-
-					
-				  </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-			        <button type="submit" class="btn btn-primary" value="submit">Save Courses</button>
-			      </div>
-				  </form>
-			    </div>
-			  </div>
+					</div>
+					<div class="modal-footer">
+			        	<label type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+					 		th:text="#{training.web.close}"></label>
+			        	<button type="submit" class="btn btn-primary" value="submit">
+							<label th:text="#{training.web.coursemanagement.saveCourses}"></label>
+						</button>
+			    	</div>
+				</form>
 			</div>
 		</div>
-	</form>				
-	
 	</div>
-
 </body>
 </html>

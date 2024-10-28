@@ -6,46 +6,39 @@
  <body>
 	
 	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-	
-		
+	<div class="navigation" th:replace="fragments/navigation :: navigation">	
+		<label th:text="#{training.web.navigation}"></label>
+	</div>
 	<div class = "body container">
-		
-		  <div class="pageHeader">
-				<h5>All Users</h5>
-		  </div>
-		  
-		  <div class="pageContent">
+		<div class="pageHeader">
+			<label th:text="#{training.web.usermanagement.title}"></label>
+		</div>  
+		<div class="pageContent">
 			<div style="text-align: right;" >
-				     <a th:href="@{'/createUser.htm'}" class="btn btn-primary btn-sm" >Add New User</a>
-				 
-					 
-					  
+				<a th:href="@{'/createUser.htm'}" class="btn btn-primary btn-sm" >
+					<label th:text="#{training.web.usermanagement.addNewUser}"></label>
+				</a>				 	  
 			</div>
 			<table class="table table-striped ">
 				<tr>
-				<th>User Id</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Contact Number</th>
-				<th>Email Id</th>
-				<th>Address</th>
-				<th>Id Proof</th>
-				<th>Aadhar Number</th>
-				<th>Profession</th>
-				<th>College Or Office</th>
-				<th>Year Of Passedout Or Experienced</th>
-
-				
-				<th colspan="3"></th>
-				
+					<th><label th:text="#{training.web.usermanagement.userId}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.firstName}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.lastName}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.contactNumber}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.emailId}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.address}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.idProof}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.aadharNumber}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.profession}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.collegeOrOffice}"></label></th>
+					<th><label th:text="#{training.web.usermanagement.yearOfPassedoutOrExperience}"></label></th>				
+					<th colspan="3"></th>
 				</tr>
-				
 				<tr th:each="user : ${users}">
 					<td th:text="${user.userId}"></td>
 					<td th:text="${user.firstName}"></td>
 					<td th:text="${user.lastName}"></td>
-					<td th:text="${user.contactNumber}"></td>
+					<td th:text="${user.mobile}"></td>
 					<td th:text="${user.emailId}"></td>
 					<td th:text="${user.address}"></td>
 					<td th:text="${user.idProof}"></td>
@@ -53,20 +46,16 @@
 					<td th:text="${user.profession}"></td>
 					<td th:text="${user.collegeOrOffice}"></td>
 					<td th:text="${user.yearOfPassedoutOrExperience}"></td>
-
-					
-																
-					<td style="text-align: right;" ><a th:href="@{'/deleteUser.htm/'}+${user.userId}" class="btn btn-danger btn-sm"  >DELETE</a></td>
-					<td style="text-align: center;"><a th:href="@{'/updateUser.htm/'}+${user.userId}" class="btn btn-warning btn-sm"   >UPDATE</a></td>
-					
+					<td style="text-align: right;" ><a th:href="@{'/deleteUser.htm/'}+${user.userId}" class="btn btn-danger btn-sm" >
+						<label th:text="#{training.web.delete}"></label></a>
+					</td>
+					<td style="text-align: center;"><a th:href="@{'/updateUser.htm/'}+${user.userId}" class="btn btn-warning btn-sm" >
+						<label th:text="#{training.web.update}"></label></a>
+					</td>
 				</tr>
 			</table>
-		  </div>
-		
+		</div>
 	</div>
-	
-	
-
 
 </body>
 </html>

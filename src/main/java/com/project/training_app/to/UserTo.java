@@ -1,5 +1,6 @@
 package com.project.training_app.to;
 
+import jakarta.persistence.GeneratedValue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,15 +11,15 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class UserTo {
-
 	
+	@GeneratedValue
 	private int userId;
 	
 	private String firstName;
 	
 	private String lastName;
 	
-	private long contactNumber;
+	private String mobile;
 	
 	private String emailId;
 	
@@ -26,7 +27,7 @@ public class UserTo {
 	
 	private String idProof;
 	
-	private long aadharNumber;
+	private String aadharNumber;
 
 	private String profession;
 	

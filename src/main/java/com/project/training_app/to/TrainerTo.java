@@ -21,13 +21,13 @@ public class TrainerTo {
 	
 	private String lastName;
 	
-	private long contactNo;
+	private String contactNo;
 	
 	private String emailId;
 	
 	private String address;
 	
-	private long aadharNo;
+	private String aadharNo;
 	
 	private String idProofType;
 	
@@ -35,9 +35,8 @@ public class TrainerTo {
 	
 	private String qualification;
 	
-	private int trainingExperience ;
+	private String trainingExperience ;
 	
 	private List<String> selectedCourseList;
 	
-
 }

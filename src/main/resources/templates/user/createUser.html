@@ -6,77 +6,94 @@
  <body>
 	
 	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-	
-		
+	<div class="navigation" th:replace="fragments/navigation :: navigation">
+		<label th:text="#{training.web.navigation}"></label>
+	</div>
 	<div class = "body container">
-		
-		  <div class="pageContent">
-				<h4> Add User </h4>
-		  </div>
-		  
-		  <div align="center">
-		  		
-		  		<form action="#" th:action="@{/saveUser.htm}" th:object="${user}" method="post" >
-		
-					
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="firstName" > First Name : </label>
-		  			<input class="form-control" id="firstName" required style="width:50%" type="text" th:field="*{firstName}"  />
+		<div class="pageHeader">
+			<label th:text="#{training.web.usermanagement.addNewUser}"></label>
+		</div>
+		<div align="center">	
+			<form action="#" th:action="@{/saveUser.htm}" th:object="${user}" method="post" >		
+				<div class="row">
+					<div class="col mb-3 text-left " style="text-align: left;">
+				  		<label class="form-label "  for="contactNumber" th:text="#{training.web.usermanagement.contactNumber}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="contactNumber" required type="text" th:field="*{mobile}"  />
+				  	</div>	
+				  	<div class="col mb-3 text-left " style="text-align: left;">
+				  		<label class="form-label "  for="emailId" th:text="#{training.web.usermanagement.emailId}"> </label>
+						<label class="colon">:</label>
+						<input class="form-control" id="emailId" required type="text" th:field="*{emailId}"  />
+				  	</div>
+				</div>
+				<div class="row">	
+			  		<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="firstName" th:text="#{training.web.usermanagement.firstName}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="firstName" required type="text" th:field="*{firstName}"  />
+			  		</div>
+			  		<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="lastName" th:text="#{training.web.usermanagement.lastName}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="lastName" required  type="text" th:field="*{lastName}"  />
+			  		</div>
 		  		</div>
-		  		
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="lastName" > Last Name : </label>
-		  			<input class="form-control" id="lastName" required style="width:50%" type="text" th:field="*{lastName}"  />
+				<div class="row">
+			  		<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="address" th:text="#{training.web.usermanagement.address}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="address" required type="text" th:field="*{address}"  />
+			  		</div>
+			  		<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="idProof" th:text="#{training.web.usermanagement.idProof}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="idProof" required type="text" th:field="*{idProof}"  />
+			  		</div>
 		  		</div>
-		  			
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="contactNumber" >Contact Number : </label>
-		  			<input class="form-control" id="contactNumber" required style="width:50%" type="number" th:field="*{contactNumber}"  />
-		  		</div>
-		  		
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="emailId" > Email Id : </label>
-		  			<input class="form-control" id="emailId" required style="width:50%" type="text" th:field="*{emailId}"  />
-		  		</div>
-		  			
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="address" > Address : </label>
-		  			<input class="form-control" id="address" required style="width:50%" type="text" th:field="*{address}"  />
-		  		</div>
-		  		
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="idProof" > Id Proof </label>
-		  			<input class="form-control" id="idProof" required style="width:50%" type="text" th:field="*{idProof}"  />
-		  		</div>
-		  			
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="aadharNumber" > Adhar Number : </label>
-		  			<input class="form-control" id="aadharNumber" required style="width:50%" type="number" th:field="*{aadharNumber}"  />
-		  		</div>
-		  		
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="profession" > Profession : </label>
-		  			<input class="form-control" id="profession" required style="width:50%" type="text" th:field="*{profession}"  />
-		  		</div>
-		  			
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="collegeOrOffice" > College Or Office : </label>
-		  			<input class="form-control" id="collegeOrOffice" required style="width:50%" type="text" th:field="*{collegeOrOffice}"  />
-		  		</div>
-		  		<div class="mb-3 text-left " style="text-align: left;">
-		  			<label class="form-label "  for="yearOfPassedoutOrExperience" > Year Of Passed Out Or Experience : </label>
-		  			<input class="form-control" id="yearOfPassedoutOrExperience" required style="width:50%" type="text" th:field="*{yearOfPassedoutOrExperience}"  />
-		  		</div>			
-		  		
-		  		
-		  		<div class="mb-3" style="text-align: left;">
+				<div class="row">
+			  		<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="aadharNumber" th:text="#{training.web.usermanagement.aadharNumber}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="aadharNumber" required type="text" th:field="*{aadharNumber}"  />
+			  		</div>
+			  		<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="profession" th:text="#{training.web.usermanagement.profession}"></label>
+						<label class="colon">:</label>
+						
+						
+						<div class="dropdown">
+						   <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+						   <span class="caret"></span></button>
+						   <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+						     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+						     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+						     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+						     <li role="presentation" class="divider"></li>
+						     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+						   </ul>
+						 </div>
+						
+					</div>
+				</div>
+				<div class="row">
+		  			<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="collegeOrOffice" th:text="#{training.web.usermanagement.collegeOrOffice}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="collegeOrOffice" required type="text" th:field="*{collegeOrOffice}"  />
+			  		</div>
+			  		<div class="col mb-3 text-left " style="text-align: left;">
+			  			<label class="form-label "  for="yearOfPassedoutOrExperience" th:text="#{training.web.usermanagement.yearOfPassedoutOrExperience}"></label>
+						<label class="colon">:</label>
+						<input class="form-control" id="yearOfPassedoutOrExperience" required type="text" th:field="*{yearOfPassedoutOrExperience}"  />
+			  		</div>
+				</div>	
+		  		<div class="mb-3" style="text-align: center;">
 		  			<input type="submit" value="Save" class="btn btn-primary" />
 		  		</div>
-		  		  </form>
-		  </div>
-		  </div>
-	
+		  	</form>
+		</div>
+	</div>	
 	
 </body>
 </html>

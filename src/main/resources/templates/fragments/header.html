@@ -1,17 +1,19 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="~{layout}">
-
-<body>
-	
+	<body>
 		<header class="header">
-			<div class="logo-header">
+			<div class="d-flex">
+				<div class="logo-header d-inline-block">
 					<img class="logo" >
-					<img src="logo_light.png" height="25px " width="100px"></img>
-
+					<img src="img/appLogoNew.png" height="80px " width="175px"></img>				
+				</div>
+				<div class="d-inline-block " >
+					<h2 style="color:palegoldenrod;padding-top: 18px;padding-left: 300px;">
+						<label th:text="#{training.web.heading}"></label>
+					</h2>
+				</div>			
 			</div>
-
 		</header>
-
-</body>
+	</body>
 </html>

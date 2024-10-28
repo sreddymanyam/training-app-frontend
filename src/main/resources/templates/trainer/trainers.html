@@ -4,43 +4,38 @@
 <head th:insert ="fragments/links"/>
 </head>
  <body>
-	
 	<div  class="header" th:replace="fragments/header :: header">...</div>
-	<div class="navigation" th:replace="fragments/navigation :: navigation">Navigation</div>
-		
-		
+	<div class="navigation" th:replace="fragments/navigation :: navigation">
+		<label th:text="#{training.web.navigation}"></label>
+	</div>
 	<div class = "body container">
-		
-		  <div class="pageHeader">
-				<h5>All Trainers</h5>
-		  </div>
-		  
-		  <div class="pageContent">
+		<div class="pageHeader">
+			<label th:text="#{training.web.trainermanagement.title}"></label>
+		</div>
+		<div class="pageContent">
 			<div style="text-align: right;" >
-				     <a th:href="@{'/createTrainer.htm'}" class="btn btn-primary btn-sm" >Add New Trainer</a>
-					 	
+				<a th:href="@{'/createTrainer.htm'}" class="btn btn-primary btn-sm" >
+					<label th:text="#{training.web.trainermanagement.addNewTrainer}"></label>
+				</a>	 	
 			</div>
 			<table class="table table-striped ">
 				<tr>
-					<th>Trainer Id</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Contact No</th>
-					<th>Email Id</th>
-					<th>Address</th>
-					<th>Aadhar No</th>
-					<th>Id Proof Type</th>
-					<th>Id Proof Document</th>
-					<th>Qualification</th>
-					<th>Training Experience</th>
-	
+					<th><label th:text="#{training.web.trainermanagement.trainerId}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.firstName}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.lastName}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.contactNo}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.emailId}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.address}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.aadharNo}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.idProofType}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.idProofDocument}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.qualification}"></label></th>
+					<th><label th:text="#{training.web.trainermanagement.trainingExperience}"></label></th>
 					<th colspan="3"></th>
-				
 				</tr>			
-				
 				<tr th:each="trainer : ${trainers}">
-					<td >  <a th:href="@{'/viewTrainer.htm/'}+${trainer.trainerId}"><lable th:text="${trainer.trainerId}"></a>  </lable> </td>
-					<td> <a th:href="@{'/viewTrainer.htm/'}+${trainer.trainerId}"><lable th:text="${trainer.firstName}"></a>  </lable> </td>
+					<td><a th:href="@{'/viewTrainer.htm/'}+${trainer.trainerId}"><lable th:text="${trainer.trainerId}"></lable></a></td>
+					<td><a th:href="@{'/viewTrainer.htm/'}+${trainer.trainerId}"><lable th:text="${trainer.firstName}"></a></lable></td>
 					<td th:text="${trainer.lastName}"></td>
 					<td th:text="${trainer.contactNo}"></td>
 					<td th:text="${trainer.emailId}"></td>
@@ -50,18 +45,15 @@
 					<td th:text="${trainer.idProofDocument}"></td>
 					<td th:text="${trainer.qualification}"></td>
 					<td th:text="${trainer.trainingExperience}"></td>
-																		
-					<td style="text-align: right;" ><a th:href="@{'/deleteTrainer.htm/'}+${trainer.trainerId}" class="btn btn-danger btn-sm" >DELETE</a></td>
-					<td style="text-align: center;"><a th:href="@{'/updateTrainer.htm/'}+${trainer.trainerId}" class="btn btn-warning btn-sm"  >UPDATE</a></td>
-					
+					<td style="text-align: right;" ><a th:href="@{'/deleteTrainer.htm/'}+${trainer.trainerId}" class="btn btn-danger btn-sm" >
+						<label th:text="#{training.web.delete}"></label></a>
+					</td>
+					<td style="text-align: center;"><a th:href="@{'/updateTrainer.htm/'}+${trainer.TrainerId}" class="btn btn-warning btn-sm" >
+						<label th:text="#{training.web.update}"></label></a>
+					</td>
 				</tr>
 			</table>
-		  </div>
-		
+		</div>
 	</div>
-	
-	
-
-
 </body>
 </html>

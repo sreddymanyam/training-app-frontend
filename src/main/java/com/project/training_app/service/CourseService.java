@@ -19,25 +19,18 @@ public class CourseService {
 	private static final String DELETE_COURSE = TRAINING_APP_BASE_URL + "/course-service/delete/{id}";
 	private static final String UPDATE_COURSE = TRAINING_APP_BASE_URL + "/course-service/update";
 
-
-
 	List<CourseTo> courseList = new ArrayList<>();
 
 	@Autowired
 	private RestTemplate restTemplate;
 
 	public List<CourseTo> getAllActiveCourse() {
-
 		CourseTo[] coursearray = this.restTemplate.getForObject(ALL_COURSES, CourseTo[].class);
-
 		List<CourseTo> cour = Arrays.asList(coursearray);
-
 		return cour;
-
 	}
 
 	public void saveCourse(CourseTo courseTo) {
-
 		try {
 			restTemplate.postForEntity(CREATE_COURSE, courseTo, CourseTo.class);
 		} catch (Exception e) {
@@ -46,19 +39,13 @@ public class CourseService {
 	}
 
 	public void removeCourse(int id) {
-
 		restTemplate.delete(DELETE_COURSE, id);
-
 	}
 
 	public CourseTo updateById(int id) {
-
 		CourseTo[] coursearray = this.restTemplate.getForObject(ALL_COURSES, CourseTo[].class);
-
 		List<CourseTo> cour = Arrays.asList(coursearray);
-
 		for (CourseTo courseTo : cour) {
-
 			if (courseTo.getId() == id) {
 				return courseTo;
 			}
@@ -67,7 +54,6 @@ public class CourseService {
 	}
 
 	public void updateCourse(CourseTo courseTo) throws JsonProcessingException {
-
 		try {
 			restTemplate.postForEntity(UPDATE_COURSE, courseTo, CourseTo.class);
 		} catch (Exception e) {
